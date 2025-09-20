@@ -151,14 +151,14 @@ const CommunityLeaderDashboard = () => {
                   <div className="flex items-start gap-3 p-3 bg-destructive/10 rounded-lg border border-destructive/20">
                     <AlertCircle className="w-5 h-5 text-destructive mt-0.5" />
                     <div>
-                      <p className="font-medium text-destructive-foreground">Sensor SW003 Offline</p>
+                      <p className="font-medium ">Sensor SW003 Offline</p>
                       <p className="text-sm text-muted-foreground">South Farm sensor has been offline for 2 hours. Maintenance required.</p>
                     </div>
                   </div>
                   <div className="flex items-start gap-3 p-3 bg-warning/10 rounded-lg border border-warning/20">
                     <AlertCircle className="w-5 h-5 text-warning mt-0.5" />
                     <div>
-                      <p className="font-medium text-warning-foreground">Low Water Level - East Quarter</p>
+                      <p className="font-medium">Low Water Level - East Quarter</p>
                       <p className="text-sm text-muted-foreground">Groundwater level at 45% in East Quarter. Consider water conservation measures.</p>
                     </div>
                   </div>

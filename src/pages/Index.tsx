@@ -75,8 +75,8 @@ const Index = () => {
           {userRoles.map((role) => {
             const IconComponent = role.icon;
             return (
-              <Card key={role.path} className="hover:shadow-lg transition-shadow cursor-pointer group">
-                <CardHeader className="text-center pb-2">
+              <Card key={role.path} className="hover:shadow-lg transition-shadow cursor-pointer group flex flex-col h-full">
+                <CardHeader className="text-center pb-2 flex-grow">
                   <div className="mx-auto mb-4 p-3 bg-secondary rounded-full w-fit">
                     <IconComponent className={`w-8 h-8 ${role.color}`} />
                   </div>
@@ -85,7 +85,7 @@ const Index = () => {
                     {role.description}
                   </CardDescription>
                 </CardHeader>
-                <CardContent className="pt-4">
+                <CardContent className="pt-4 mt-auto">
                   <Button 
                     onClick={() => navigate(role.path)}
                     className="w-full group-hover:scale-105 transition-transform"

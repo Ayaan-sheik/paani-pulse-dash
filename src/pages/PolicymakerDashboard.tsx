@@ -121,7 +121,7 @@ const PolicymakerDashboard = () => {
                           </button>
                         ))}
                       </div>
-                      <div className="absolute bottom-4 left-4 bg-white/90 p-3 rounded-lg shadow">
+                      <div className="absolute bottom-4 right-4 bg-white/90 p-3 rounded-lg shadow">
                         <div className="text-xs font-medium mb-2">Legend</div>
                         <div className="space-y-1 text-xs">
                           <div className="flex items-center gap-2">

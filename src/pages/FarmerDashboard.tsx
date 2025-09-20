@@ -52,7 +52,7 @@ const FarmerDashboard = () => {
           <h2 className="text-lg font-semibold text-foreground">Alerts</h2>
           <Alert className="border-warning bg-warning/10">
             <AlertTriangle className="h-4 w-4 text-warning" />
-            <AlertDescription className="text-warning-foreground">
+            <AlertDescription className="text-black">
               Irrigation recommended for Field A - optimal soil moisture detected
             </AlertDescription>
           </Alert>
@@ -107,7 +107,7 @@ const FarmerDashboard = () => {
             <div className="bg-success/10 p-4 rounded-lg border border-success/20">
               <div className="flex items-start justify-between mb-2">
                 <div>
-                  <h4 className="font-medium text-success-foreground">Field A - Wheat</h4>
+                  <h4 className="font-medium ">Field A - Wheat</h4>
                   <p className="text-sm text-muted-foreground">Next irrigation: Today 6:00 AM</p>
                 </div>
                 <Badge variant="secondary" className="bg-success text-success-foreground">
