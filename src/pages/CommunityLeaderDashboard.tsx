@@ -55,7 +55,6 @@ const CommunityLeaderDashboard = () => {
     return "text-destructive";
   };
 
-  // Mock data for historical trends
   const mockChartData = [
     { month: "Jan", level: 65 },
     { month: "Feb", level: 62 },
@@ -69,7 +68,7 @@ const CommunityLeaderDashboard = () => {
     <div className="min-h-screen bg-background">
       {/* Header */}
       <div className="bg-primary text-white p-4 shadow-lg">
-        <div className="max-w-7xl mx-auto flex items-center justify-between">
+        <div className="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-2 sm:gap-0">
           <Button 
             variant="ghost" 
             size="sm" 
@@ -79,22 +78,22 @@ const CommunityLeaderDashboard = () => {
             <ArrowLeft className="w-4 h-4 mr-2" />
             Back
           </Button>
-          <h1 className="text-2xl font-bold">Community Leader Dashboard</h1>
+          <h1 className="text-xl sm:text-2xl font-bold text-center sm:text-left">Community Leader Dashboard</h1>
           <div className="w-16"></div>
         </div>
       </div>
 
-      <div className="max-w-7xl mx-auto p-6">
+      <div className="max-w-7xl mx-auto p-4 sm:p-6">
         <Tabs defaultValue="overview" className="space-y-6">
-          <TabsList className="grid w-full grid-cols-3">
+          <TabsList className="grid grid-cols-1 sm:grid-cols-3 gap-2 overflow-x-auto">
             <TabsTrigger value="overview">Community Overview</TabsTrigger>
             <TabsTrigger value="trends">Historical Trends</TabsTrigger>
             <TabsTrigger value="sensors">Sensor Network</TabsTrigger>
           </TabsList>
 
+          {/* Overview */}
           <TabsContent value="overview" className="space-y-6">
-            {/* Community Overview Metrics */}
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
               <Card>
                 <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
                   <CardTitle className="text-sm font-medium">Total Water Usage</CardTitle>
@@ -140,7 +139,7 @@ const CommunityLeaderDashboard = () => {
               </Card>
             </div>
 
-            {/* Recent Alerts */}
+            {/* Alerts */}
             <Card>
               <CardHeader>
                 <CardTitle>Recent Community Alerts</CardTitle>
@@ -148,14 +147,14 @@ const CommunityLeaderDashboard = () => {
               </CardHeader>
               <CardContent>
                 <div className="space-y-4">
-                  <div className="flex items-start gap-3 p-3 bg-destructive/10 rounded-lg border border-destructive/20">
+                  <div className="flex flex-col sm:flex-row items-start sm:items-center gap-3 p-3 bg-destructive/10 rounded-lg border border-destructive/20">
                     <AlertCircle className="w-5 h-5 text-destructive mt-0.5" />
                     <div>
                       <p className="font-medium ">Sensor SW003 Offline</p>
                       <p className="text-sm text-muted-foreground">South Farm sensor has been offline for 2 hours. Maintenance required.</p>
                     </div>
                   </div>
-                  <div className="flex items-start gap-3 p-3 bg-warning/10 rounded-lg border border-warning/20">
+                  <div className="flex flex-col sm:flex-row items-start sm:items-center gap-3 p-3 bg-warning/10 rounded-lg border border-warning/20">
                     <AlertCircle className="w-5 h-5 text-warning mt-0.5" />
                     <div>
                       <p className="font-medium">Low Water Level - East Quarter</p>
@@ -167,6 +166,7 @@ const CommunityLeaderDashboard = () => {
             </Card>
           </TabsContent>
 
+          {/* Trends */}
           <TabsContent value="trends" className="space-y-6">
             <Card>
               <CardHeader>
@@ -183,7 +183,7 @@ const CommunityLeaderDashboard = () => {
                     </p>
                   </div>
                 </div>
-                <div className="mt-4 grid grid-cols-6 gap-4 text-center">
+                <div className="mt-4 grid grid-cols-3 sm:grid-cols-6 gap-4 text-center">
                   {mockChartData.map((data) => (
                     <div key={data.month} className="space-y-1">
                       <div className="text-sm font-medium">{data.month}</div>
@@ -197,6 +197,7 @@ const CommunityLeaderDashboard = () => {
             </Card>
           </TabsContent>
 
+          {/* Sensors */}
           <TabsContent value="sensors" className="space-y-6">
             <Card>
               <CardHeader>
@@ -206,7 +207,7 @@ const CommunityLeaderDashboard = () => {
               <CardContent>
                 <div className="space-y-4">
                   {sensorData.map((sensor) => (
-                    <div key={sensor.id} className="flex items-center justify-between p-4 border rounded-lg">
+                    <div key={sensor.id} className="flex flex-col sm:flex-row sm:items-center justify-between p-4 border rounded-lg gap-3">
                       <div className="flex items-center gap-4">
                         {getStatusIcon(sensor.status)}
                         <div>
@@ -214,7 +215,7 @@ const CommunityLeaderDashboard = () => {
                           <p className="text-sm text-muted-foreground">{sensor.location}</p>
                         </div>
                       </div>
-                      <div className="flex items-center gap-4">
+                      <div className="flex items-center gap-4 mt-2 sm:mt-0">
                         <div className="text-right">
                           <div className={`font-bold ${getLevelColor(sensor.level)}`}>
                             {sensor.level > 0 ? `${sensor.level}%` : "N/A"}

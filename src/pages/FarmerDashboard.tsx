@@ -31,7 +31,7 @@ const FarmerDashboard = () => {
     <div className="min-h-screen bg-background">
       {/* Header */}
       <div className="bg-primary text-white p-4 shadow-lg">
-        <div className="max-w-md mx-auto flex items-center justify-between">
+        <div className="max-w-md mx-auto flex flex-col sm:flex-row items-center justify-between gap-2 sm:gap-0">
           <Button 
             variant="ghost" 
             size="sm" 
@@ -41,16 +41,16 @@ const FarmerDashboard = () => {
             <ArrowLeft className="w-4 h-4 mr-2" />
             Back
           </Button>
-          <h1 className="text-xl font-bold">Farmer Dashboard</h1>
+          <h1 className="text-xl sm:text-2xl font-bold text-center sm:text-left">Farmer Dashboard</h1>
           <div className="w-16"></div>
         </div>
       </div>
 
-      <div className="max-w-md mx-auto p-4 space-y-6">
+      <div className="max-w-md mx-auto p-4 sm:p-6 space-y-6">
         {/* Alerts Section */}
         <div className="space-y-2">
           <h2 className="text-lg font-semibold text-foreground">Alerts</h2>
-          <Alert className="border-warning bg-warning/10">
+          <Alert className="border-warning bg-warning/10 flex flex-col sm:flex-row items-start sm:items-center gap-2">
             <AlertTriangle className="h-4 w-4 text-warning" />
             <AlertDescription className="text-black">
               Irrigation recommended for Field A - optimal soil moisture detected
@@ -61,21 +61,21 @@ const FarmerDashboard = () => {
         {/* Current Groundwater Level */}
         <Card>
           <CardHeader className="text-center pb-2">
-            <CardTitle className="flex items-center justify-center gap-2">
+            <CardTitle className="flex items-center justify-center gap-2 flex-wrap sm:flex-nowrap">
               <Gauge className="w-5 h-5 text-primary" />
               Current Groundwater Level
             </CardTitle>
           </CardHeader>
           <CardContent className="text-center">
             <div className="relative mb-4">
-              <div className="text-6xl font-bold text-primary mb-2">
+              <div className="text-5xl sm:text-6xl font-bold text-primary mb-2">
                 {groundwaterLevel}%
               </div>
               <Badge 
                 variant="secondary" 
-                className={`bg-${waterStatus.color} text-${waterStatus.color}-foreground`}
+                className={`bg-${waterStatus.color} text-${waterStatus.color}-foreground inline-flex items-center gap-1`}
               >
-                <StatusIcon className="w-4 h-4 mr-1" />
+                <StatusIcon className="w-4 h-4" />
                 {waterStatus.status}
               </Badge>
             </div>
@@ -85,7 +85,7 @@ const FarmerDashboard = () => {
                 value={groundwaterLevel} 
                 className="h-3"
               />
-              <div className="flex justify-between text-sm text-muted-foreground">
+              <div className="flex flex-col sm:flex-row justify-between text-sm text-muted-foreground mt-1 gap-1 sm:gap-0">
                 <span>Critical (0-40%)</span>
                 <span>Caution (40-70%)</span>
                 <span>Safe (70%+)</span>
@@ -97,7 +97,7 @@ const FarmerDashboard = () => {
         {/* Smart Irrigation Schedule */}
         <Card>
           <CardHeader>
-            <CardTitle className="flex items-center gap-2">
+            <CardTitle className="flex items-center gap-2 flex-wrap sm:flex-nowrap">
               <Droplets className="w-5 h-5 text-accent" />
               Smart Irrigation Schedules
             </CardTitle>
@@ -105,7 +105,7 @@ const FarmerDashboard = () => {
           </CardHeader>
           <CardContent className="space-y-4">
             <div className="bg-success/10 p-4 rounded-lg border border-success/20">
-              <div className="flex items-start justify-between mb-2">
+              <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between mb-2 gap-2 sm:gap-0">
                 <div>
                   <h4 className="font-medium ">Field A - Wheat</h4>
                   <p className="text-sm text-muted-foreground">Next irrigation: Today 6:00 AM</p>
@@ -120,7 +120,7 @@ const FarmerDashboard = () => {
             </div>
 
             <div className="bg-muted p-4 rounded-lg">
-              <div className="flex items-start justify-between mb-2">
+              <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between mb-2 gap-2 sm:gap-0">
                 <div>
                   <h4 className="font-medium">Field B - Rice</h4>
                   <p className="text-sm text-muted-foreground">Next irrigation: Tomorrow 5:30 AM</p>
@@ -139,7 +139,7 @@ const FarmerDashboard = () => {
         {/* Weather & Tips */}
         <Card>
           <CardHeader>
-            <CardTitle className="flex items-center gap-2">
+            <CardTitle className="flex items-center gap-2 flex-wrap sm:flex-nowrap">
               <Calendar className="w-5 h-5 text-primary" />
               Today's Tips
             </CardTitle>

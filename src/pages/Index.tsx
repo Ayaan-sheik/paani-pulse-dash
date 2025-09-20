@@ -44,15 +44,15 @@ const Index = () => {
           <div className="absolute inset-0 bg-primary/60"></div>
         </div>
         
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24">
-          <div className="text-center text-white">
-            <h1 className="text-4xl md:text-6xl font-bold mb-6">
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-24">
+          <div className="text-center text-white space-y-6 sm:space-y-8">
+            <h1 className="text-3xl sm:text-4xl md:text-6xl font-bold">
               PaaniConnect
             </h1>
-            <p className="text-xl md:text-2xl mb-8 text-white/90">
+            <p className="text-lg sm:text-xl md:text-2xl text-white/90 max-w-3xl mx-auto">
               Smart Water Management for Sustainable Agriculture
             </p>
-            <p className="text-lg text-white/80 max-w-3xl mx-auto">
+            <p className="text-base sm:text-lg text-white/80 max-w-3xl mx-auto">
               Monitor groundwater levels, optimize irrigation, and make data-driven decisions 
               for sustainable water resource management across farming communities.
             </p>
@@ -61,27 +61,30 @@ const Index = () => {
       </div>
 
       {/* Role Selection */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-        <div className="text-center mb-12">
-          <h2 className="text-3xl font-bold text-foreground mb-4">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16">
+        <div className="text-center mb-10 sm:mb-12">
+          <h2 className="text-2xl sm:text-3xl font-bold text-foreground mb-3 sm:mb-4">
             Choose Your Dashboard
           </h2>
-          <p className="text-lg text-muted-foreground">
+          <p className="text-base sm:text-lg text-muted-foreground max-w-xl mx-auto">
             Select your role to access tailored water management tools
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
           {userRoles.map((role) => {
             const IconComponent = role.icon;
             return (
-              <Card key={role.path} className="hover:shadow-lg transition-shadow cursor-pointer group flex flex-col h-full">
+              <Card 
+                key={role.path} 
+                className="hover:shadow-lg transition-shadow cursor-pointer group flex flex-col h-full"
+              >
                 <CardHeader className="text-center pb-2 flex-grow">
-                  <div className="mx-auto mb-4 p-3 bg-secondary rounded-full w-fit">
+                  <div className="mx-auto mb-4 p-4 bg-secondary rounded-full w-fit flex items-center justify-center">
                     <IconComponent className={`w-8 h-8 ${role.color}`} />
                   </div>
-                  <CardTitle className="text-xl">{role.title}</CardTitle>
-                  <CardDescription className="text-center">
+                  <CardTitle className="text-lg sm:text-xl">{role.title}</CardTitle>
+                  <CardDescription className="text-center text-sm sm:text-base">
                     {role.description}
                   </CardDescription>
                 </CardHeader>
@@ -101,9 +104,9 @@ const Index = () => {
       </div>
 
       {/* Footer */}
-      <footer className="bg-secondary/50 py-8 mt-16">
+      <footer className="bg-secondary/50 py-8 mt-12 sm:mt-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <p className="text-muted-foreground">
+          <p className="text-sm sm:text-base text-muted-foreground">
             Built for Smart India Hackathon 2025 - Empowering sustainable water management
           </p>
         </div>
