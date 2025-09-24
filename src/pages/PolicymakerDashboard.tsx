@@ -17,11 +17,13 @@ import {
   Activity
 } from "lucide-react";
 import HighFrequencyChart from "@/components/ui/HighFrequencyChart";
+import { DataPoint } from "@/components/ui/HighFrequencyChart";
 
 const PolicymakerDashboard = () => {
   const navigate = useNavigate();
   const [selectedRegion, setSelectedRegion] = useState("all");
   const [selectedTimeframe, setSelectedTimeframe] = useState("6months");
+  const [selectedArea, setSelectedArea] = useState<string | null>(null);
 
   const regionalData = [
     { region: "Northern District", status: "Safe", level: 78, trend: "stable", extraction: 125, recharge: 140 },
@@ -49,12 +51,21 @@ const PolicymakerDashboard = () => {
     }
   };
 
-  const [selectedArea, setSelectedArea] = useState<string | null>(null);
-
-  const handleMapAreaClick = (areaName: string) => {
+   const handleMapAreaClick = (areaName: string) => {
     setSelectedArea(areaName);
+    setSelectedRegion(areaName); // sync chart data with selected area
   };
 
+  const generateMockHFData = (region: string, timeframe: string): DataPoint[] => {
+    const hours = Array.from({ length: 24 }, (_, i) => `${i + 1}:00`);
+    return hours.map(hour => ({
+      hour,
+      extraction: Math.floor(Math.random() * (region === "Southern District" ? 200 : 100)),
+      recharge: Math.floor(Math.random() * (region === "Southern District" ? 150 : 80))
+    }));
+  };
+
+  const hfChartData = generateMockHFData(selectedRegion, selectedTimeframe);
   return (
     <div className="min-h-screen bg-background">
       {/* Header */}
@@ -291,7 +302,7 @@ const PolicymakerDashboard = () => {
                 <CardDescription>Hourly extraction vs recharge patterns</CardDescription>
               </CardHeader>
               <CardContent>
-                <HighFrequencyChart />
+                <HighFrequencyChart data={hfChartData} />
               </CardContent>
             </Card>
           </TabsContent>
