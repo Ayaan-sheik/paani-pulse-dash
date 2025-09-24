@@ -10,7 +10,7 @@ There are several ways of editing your application.
 
 **Use Lovable**
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/4a88f49d-6129-494c-8557-883bb6fe1604) and start prompting.
+Simply visit the [Project](https://paani-pulse-dash.vercel.app/) and start prompting.
 
 Changes made via Lovable will be committed automatically to this repo.
 
