@@ -16,6 +16,7 @@ import {
   TrendingUp,
   Activity
 } from "lucide-react";
+import HighFrequencyChart from "@/components/ui/HighFrequencyChart";
 
 const PolicymakerDashboard = () => {
   const navigate = useNavigate();
@@ -290,15 +291,7 @@ const PolicymakerDashboard = () => {
                 <CardDescription>Hourly extraction vs recharge patterns</CardDescription>
               </CardHeader>
               <CardContent>
-                <div className="h-64 bg-muted/30 rounded-lg flex items-center justify-center">
-                  <div className="text-center">
-                    <BarChart3 className="w-12 h-12 text-muted-foreground mx-auto mb-4" />
-                    <p className="text-muted-foreground">Advanced Analytics Chart Placeholder</p>
-                    <p className="text-sm text-muted-foreground mt-2">
-                      Real-time extraction patterns and recharge analysis
-                    </p>
-                  </div>
-                </div>
+                <HighFrequencyChart />
               </CardContent>
             </Card>
           </TabsContent>

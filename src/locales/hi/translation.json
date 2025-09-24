@@ -1,0 +1,101 @@
+{
+  "farmerDashboard": {
+    "back": "वापस",
+    "title": "किसान डैशबोर्ड",
+    "alerts": {
+      "title": "चेतावनी",
+      "irrigation": "फील्ड A के लिए सिंचाई की सिफारिश - इष्टतम मिट्टी की नमी पाई गई"
+    },
+    "groundwaterLevel": "वर्तमान भूजल स्तर",
+    "status": {
+      "safe": "सुरक्षित",
+      "caution": "सावधानी",
+      "critical": "गंभीर"
+    },
+    "groundwaterRanges": {
+      "critical": "गंभीर (0-40%)",
+      "caution": "सावधानी (40-70%)",
+      "safe": "सुरक्षित (70%+)"
+    },
+    "irrigation": {
+      "title": "स्मार्ट सिंचाई अनुसूची",
+      "description": "सर्वोत्तम जल उपयोग के लिए एआई-आधारित सिफारिशें",
+      "fields": {
+        "A": {
+          "name": "फील्ड A - गेहूं",
+          "next": "अगली सिंचाई: आज 6:00 AM",
+          "status": "तैयार",
+          "details": "मिट्टी की नमी: 25% • सिफारिश की अवधि: 45 मिनट"
+        },
+        "B": {
+          "name": "फील्ड B - चावल",
+          "next": "अगली सिंचाई: कल 5:30 AM",
+          "status": "अनुसूचित",
+          "details": "मिट्टी की नमी: 60% • सिफारिश की अवधि: 30 मिनट"
+        }
+      }
+    },
+    "tips": {
+      "title": "आज के सुझाव",
+      "weather": "अगले 3 दिनों में कोई बारिश नहीं - नियमित सिंचाई बनाए रखें",
+      "morningIrrigation": "सुबह की सिंचाई (5-7 बजे) वाष्पीकरण से जल हानि कम करती है",
+      "dripIrrigation": "फील्ड A में 20% पानी की बचत के लिए ड्रिप सिंचाई पर विचार करें"
+    }
+  },
+  
+  "communityLeaderDashboard": {
+    "title": "समुदाय नेतृत्व डैशबोर्ड",
+    "tabs": {
+      "overview": "समुदाय अवलोकन",
+      "trends": "ऐतिहासिक रुझान",
+      "sensors": "सेंसर नेटवर्क"
+    },
+    "metrics": {
+      "totalWaterUsage": "कुल जल उपयोग",
+      "activeWells": "सक्रिय कुएँ",
+      "totalFarmers": "कुल किसान",
+      "avgGroundwater": "औसत भूजल",
+      "thisMonth": "इस महीने",
+      "currentlyOperational": "वर्तमान में सक्रिय",
+      "registeredUsers": "पंजीकृत उपयोगकर्ता",
+      "communityAverage": "समुदाय औसत"
+    },
+    "alerts": {
+      "recentAlerts": "हाल की समुदाय चेतावनियाँ",
+      "description": "समुदाय जल प्रबंधन के लिए महत्वपूर्ण सूचनाएँ",
+      "sensorOffline": "सेंसर {{id}} ऑफ़लाइन",
+      "lowWaterLevel": "कम जल स्तर - {{location}}",
+      "offlineMessage": "{{location}} सेंसर {{time}} से ऑफ़लाइन है। रखरखाव आवश्यक।",
+      "lowWaterMessage": "{{location}} में भूजल स्तर {{level}}% है। जल संरक्षण उपाय विचार करें।"
+    },
+    "trends": {
+      "title": "ऐतिहासिक भूजल रुझान",
+      "description": "समुदाय में 6 महीने के भूजल स्तर रुझान",
+      "chartPlaceholder": "इंटरैक्टिव चार्ट प्लेसहोल्डर",
+      "trendInfo": "{{start}}% (जन) से {{end}}% (जून) तक घटते रुझान दिखा रहा है"
+    },
+    "sensors": {
+      "title": "गाँव सेंसर नेटवर्क",
+      "description": "सभी भूजल निगरानी सेंसर का वास्तविक समय स्थिति",
+      "status": {
+        "operational": "सक्रिय",
+        "malfunctioning": "अफ़लाइन",
+        "unknown": "अज्ञात"
+      }
+    },
+    "back": "वापस",
+
+    "locations": {
+      "northVillage": "उत्तर गाँव",
+      "centralFields": "मध्य क्षेत्र",
+      "southFarm": "दक्षिण खेत",
+      "eastQuarter": "पूर्व क्षेत्र",
+      "westFields": "पश्चिम क्षेत्र"
+    }
+
+
+  }
+
+
+
+}

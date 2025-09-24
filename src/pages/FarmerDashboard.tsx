@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
@@ -14,14 +15,18 @@ import {
   Gauge
 } from "lucide-react";
 
+// Import the language switcher component
+import LanguageSwitcher from "@/components/ui/LanguageSwitcher";
+
 const FarmerDashboard = () => {
   const navigate = useNavigate();
+  const { t } = useTranslation();
   const [groundwaterLevel] = useState(65); // Percentage
 
   const getWaterLevelStatus = (level: number) => {
-    if (level >= 70) return { color: "success", status: "Safe", icon: CheckCircle };
-    if (level >= 40) return { color: "warning", status: "Caution", icon: AlertTriangle };
-    return { color: "destructive", status: "Critical", icon: AlertTriangle };
+    if (level >= 70) return { color: "success", status: t("farmerDashboard.status.safe"), icon: CheckCircle };
+    if (level >= 40) return { color: "warning", status: t("farmerDashboard.status.caution"), icon: AlertTriangle };
+    return { color: "destructive", status: t("farmerDashboard.status.critical"), icon: AlertTriangle };
   };
 
   const waterStatus = getWaterLevelStatus(groundwaterLevel);
@@ -39,21 +44,24 @@ const FarmerDashboard = () => {
             className="text-white hover:bg-white/20"
           >
             <ArrowLeft className="w-4 h-4 mr-2" />
-            Back
+            {t("farmerDashboard.back")}
           </Button>
-          <h1 className="text-xl sm:text-2xl font-bold text-center sm:text-left">Farmer Dashboard</h1>
-          <div className="w-16"></div>
+          <h1 className="text-xl sm:text-2xl font-bold text-center sm:text-left">
+            {t("farmerDashboard.title")}
+          </h1>
+          {/* Replace language buttons with the LanguageSwitcher component */}
+          <LanguageSwitcher />
         </div>
       </div>
 
       <div className="max-w-md mx-auto p-4 sm:p-6 space-y-6">
         {/* Alerts Section */}
         <div className="space-y-2">
-          <h2 className="text-lg font-semibold text-foreground">Alerts</h2>
+          <h2 className="text-lg font-semibold text-foreground">{t("farmerDashboard.alerts.title")}</h2>
           <Alert className="border-warning bg-warning/10 flex flex-col sm:flex-row items-start sm:items-center gap-2">
             <AlertTriangle className="h-4 w-4 text-warning" />
             <AlertDescription className="text-black">
-              Irrigation recommended for Field A - optimal soil moisture detected
+              {t("farmerDashboard.alerts.irrigation")}
             </AlertDescription>
           </Alert>
         </div>
@@ -63,7 +71,7 @@ const FarmerDashboard = () => {
           <CardHeader className="text-center pb-2">
             <CardTitle className="flex items-center justify-center gap-2 flex-wrap sm:flex-nowrap">
               <Gauge className="w-5 h-5 text-primary" />
-              Current Groundwater Level
+              {t("farmerDashboard.groundwaterLevel")}
             </CardTitle>
           </CardHeader>
           <CardContent className="text-center">
@@ -81,14 +89,11 @@ const FarmerDashboard = () => {
             </div>
             
             <div className="space-y-2">
-              <Progress 
-                value={groundwaterLevel} 
-                className="h-3"
-              />
+              <Progress value={groundwaterLevel} className="h-3" />
               <div className="flex flex-col sm:flex-row justify-between text-sm text-muted-foreground mt-1 gap-1 sm:gap-0">
-                <span>Critical (0-40%)</span>
-                <span>Caution (40-70%)</span>
-                <span>Safe (70%+)</span>
+                <span>{t("farmerDashboard.groundwaterRanges.critical")}</span>
+                <span>{t("farmerDashboard.groundwaterRanges.caution")}</span>
+                <span>{t("farmerDashboard.groundwaterRanges.safe")}</span>
               </div>
             </div>
           </CardContent>
@@ -99,38 +104,38 @@ const FarmerDashboard = () => {
           <CardHeader>
             <CardTitle className="flex items-center gap-2 flex-wrap sm:flex-nowrap">
               <Droplets className="w-5 h-5 text-accent" />
-              Smart Irrigation Schedules
+              {t("farmerDashboard.irrigation.title")}
             </CardTitle>
-            <CardDescription>AI-powered recommendations for optimal water usage</CardDescription>
+            <CardDescription>{t("farmerDashboard.irrigation.description")}</CardDescription>
           </CardHeader>
           <CardContent className="space-y-4">
             <div className="bg-success/10 p-4 rounded-lg border border-success/20">
               <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between mb-2 gap-2 sm:gap-0">
                 <div>
-                  <h4 className="font-medium ">Field A - Wheat</h4>
-                  <p className="text-sm text-muted-foreground">Next irrigation: Today 6:00 AM</p>
+                  <h4 className="font-medium">{t("farmerDashboard.irrigation.fields.A.name")}</h4>
+                  <p className="text-sm text-muted-foreground">{t("farmerDashboard.irrigation.fields.A.next")}</p>
                 </div>
                 <Badge variant="secondary" className="bg-success text-success-foreground">
-                  Ready
+                  {t("farmerDashboard.irrigation.fields.A.status")}
                 </Badge>
               </div>
               <p className="text-sm text-muted-foreground">
-                Soil moisture: 25% • Recommended duration: 45 minutes
+                {t("farmerDashboard.irrigation.fields.A.details")}
               </p>
             </div>
 
             <div className="bg-muted p-4 rounded-lg">
               <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between mb-2 gap-2 sm:gap-0">
                 <div>
-                  <h4 className="font-medium">Field B - Rice</h4>
-                  <p className="text-sm text-muted-foreground">Next irrigation: Tomorrow 5:30 AM</p>
+                  <h4 className="font-medium">{t("farmerDashboard.irrigation.fields.B.name")}</h4>
+                  <p className="text-sm text-muted-foreground">{t("farmerDashboard.irrigation.fields.B.next")}</p>
                 </div>
                 <Badge variant="outline">
-                  Scheduled
+                  {t("farmerDashboard.irrigation.fields.B.status")}
                 </Badge>
               </div>
               <p className="text-sm text-muted-foreground">
-                Soil moisture: 60% • Recommended duration: 30 minutes
+                {t("farmerDashboard.irrigation.fields.B.details")}
               </p>
             </div>
           </CardContent>
@@ -141,22 +146,22 @@ const FarmerDashboard = () => {
           <CardHeader>
             <CardTitle className="flex items-center gap-2 flex-wrap sm:flex-nowrap">
               <Calendar className="w-5 h-5 text-primary" />
-              Today's Tips
+              {t("farmerDashboard.tips.title")}
             </CardTitle>
           </CardHeader>
           <CardContent>
             <div className="space-y-3">
               <div className="flex items-start gap-3">
                 <div className="w-2 h-2 bg-success rounded-full mt-2"></div>
-                <p className="text-sm">Weather forecast shows no rain for next 3 days - maintain regular irrigation schedule</p>
+                <p className="text-sm">{t("farmerDashboard.tips.weather")}</p>
               </div>
               <div className="flex items-start gap-3">
                 <div className="w-2 h-2 bg-primary rounded-full mt-2"></div>
-                <p className="text-sm">Morning irrigation (5-7 AM) reduces water loss by evaporation</p>
+                <p className="text-sm">{t("farmerDashboard.tips.morningIrrigation")}</p>
               </div>
               <div className="flex items-start gap-3">
                 <div className="w-2 h-2 bg-accent rounded-full mt-2"></div>
-                <p className="text-sm">Consider drip irrigation for 20% water savings in Field A</p>
+                <p className="text-sm">{t("farmerDashboard.tips.dripIrrigation")}</p>
               </div>
             </div>
           </CardContent>

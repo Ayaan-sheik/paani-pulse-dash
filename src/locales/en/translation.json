@@ -1,0 +1,94 @@
+{
+  "farmerDashboard": {
+    "back": "Back",
+    "title": "Farmer Dashboard",
+    "alerts": {
+      "title": "Alerts",
+      "irrigation": "Irrigation recommended for Field A - optimal soil moisture detected"
+    },
+    "groundwaterLevel": "Current Groundwater Level",
+    "status": {
+      "safe": "Safe",
+      "caution": "Caution",
+      "critical": "Critical"
+    },
+    "groundwaterRanges": {
+      "critical": "Critical (0-40%)",
+      "caution": "Caution (40-70%)",
+      "safe": "Safe (70%+)"
+    },
+    "irrigation": {
+      "title": "Smart Irrigation Schedules",
+      "description": "AI-powered recommendations for optimal water usage",
+      "fields": {
+        "A": {
+          "name": "Field A - Wheat",
+          "next": "Next irrigation: Today 6:00 AM",
+          "status": "Ready",
+          "details": "Soil moisture: 25% • Recommended duration: 45 minutes"
+        },
+        "B": {
+          "name": "Field B - Rice",
+          "next": "Next irrigation: Tomorrow 5:30 AM",
+          "status": "Scheduled",
+          "details": "Soil moisture: 60% • Recommended duration: 30 minutes"
+        }
+      }
+    },
+    "tips": {
+      "title": "Today's Tips",
+      "weather": "Weather forecast shows no rain for next 3 days - maintain regular irrigation schedule",
+      "morningIrrigation": "Morning irrigation (5-7 AM) reduces water loss by evaporation",
+      "dripIrrigation": "Consider drip irrigation for 20% water savings in Field A"
+    }
+  },
+  "communityLeaderDashboard": {
+    "title": "Community Leader Dashboard",
+    "tabs": {
+      "overview": "Community Overview",
+      "trends": "Historical Trends",
+      "sensors": "Sensor Network"
+    },
+    "metrics": {
+      "totalWaterUsage": "Total Water Usage",
+      "activeWells": "Active Wells",
+      "totalFarmers": "Total Farmers",
+      "avgGroundwater": "Avg. Groundwater",
+      "thisMonth": "This month",
+      "currentlyOperational": "Currently operational",
+      "registeredUsers": "Registered users",
+      "communityAverage": "Community average"
+    },
+    "alerts": {
+      "recentAlerts": "Recent Community Alerts",
+      "description": "Important notifications for community water management",
+      "sensorOffline": "Sensor {{id}} Offline",
+      "lowWaterLevel": "Low Water Level - {{location}}",
+      "offlineMessage": "{{location}} sensor has been offline for {{time}}. Maintenance required.",
+      "lowWaterMessage": "Groundwater level at {{level}}% in {{location}}. Consider water conservation measures."
+    },
+    "trends": {
+      "title": "Historical Groundwater Trends",
+      "description": "6-month groundwater level trends across the community",
+      "chartPlaceholder": "Interactive Chart Placeholder",
+      "trendInfo": "Showing declining trend from {{start}}% (Jan) to {{end}}% (Jun)"
+    },
+    "sensors": {
+      "title": "Village Sensor Network",
+      "description": "Real-time status of all groundwater monitoring sensors",
+      "status": {
+        "operational": "Operational",
+        "malfunctioning": "Offline",
+        "unknown": "Unknown"
+      }
+    },
+    "back": "Back",
+    "locations": {
+    "northVillage": "North Village",
+    "centralFields": "Central Fields",
+    "southFarm": "South Farm",
+    "eastQuarter": "East Quarter",
+    "westFields": "West Fields"
+  }
+  }
+}
